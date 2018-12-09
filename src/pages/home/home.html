@@ -4,18 +4,45 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <img src="assets/img/logo_live_add.png" class="icon-in-button">
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <div padding>
-    <ion-searchbar placeholder="Buscar..." [(ngModel)]="query"></ion-searchbar>
+<ion-content padding class="backgroundPlatzinger">
+  <ion-grid id="homeMecontainer">
+    <ion-row>
+      <ion-col col-3>
+        <div class="avatarFrameOnline">
+          <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid">
+        </div>
+      </ion-col>
+      <ion-col col-9>
+        <h1>Nick</h1>
+        <small>Subnick</small> <br />
+        <small><b>suga@mail.com</b></small>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="searchBoxContainer">
+    <ion-searchbar placeholder="Buscar..." [(ngModel)]="query" id="searchField"></ion-searchbar>
   </div>
-  <ion-list>
-    <ng-container *ngFor="let contact of contacts | search: query">
-      <ion-item *ngIf="contact.status !== 'Offline'" (click)="goToConversation(contact)">
-        {{ contact.name }} - {{contact.status}}
-      </ion-item>
-    </ng-container>
-  </ion-list>
+  <div>
+    <div>
+      <b>Amigos</b>
+    </div>
+    <ion-list>
+      <ng-container *ngFor="let contact of contacts | search: query">
+        <ion-item *ngIf="contact.status !== 'Offline'" (click)="goToConversation(contact)">
+          <img src="assets/img/logo_live_online.png" class="status">
+          <b>{{ contact.name }}</b> - <small *ngIf="contact.status">{{contact.status}}</small>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+  </div>
+
+
 </ion-content>
