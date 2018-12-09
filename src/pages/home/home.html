@@ -37,7 +37,7 @@
     <ion-list>
       <ng-container *ngFor="let contact of contacts | search: query">
         <ion-item (click)="goToConversation(contact)" [ngClass]="{ 'contact-offline': contact.status == 'Offline' || contact.status == 'AppearOffline' }">
-          <img src="assets/img/logo_live_online.png" class="status">
+        <img src="assets/img/logo_live_{{ contact.status }}.png" alt="Contact status" class="status">
           <b>{{ contact.name }}</b> - <small *ngIf="contact.status">{{contact.status}}</small>
         </ion-item>
       </ng-container>
