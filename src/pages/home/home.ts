@@ -16,8 +16,9 @@ export class HomePage {
     name: 'Alexander',
     age: 26,
     active: false,
-    status: Status.Online,
+    status: Status.Offline,
   };
+  status: Status;
 
   constructor(
     public navCtrl: NavController,
