@@ -5,15 +5,41 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>conversation</ion-title>
+    <ion-title>{{user.name}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
+<ion-content padding class="backgroundPlatzinger">
+  <ion-fab right middle>
+    <button ion-fab>
+      <ion-icon name="send"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button outline ion-fab>
+        <img src="assets/img/zumbido.png">
+      </button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <button color="dark" ion-fab>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+      <button color="dark" ion-fab>
+        <ion-icon name="images"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
   <p>{{user.name}}, {{user.age}} años</p>
   <p>{{user.status}}</p>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input type="text" class="footbarInput" autofocus></ion-input>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
