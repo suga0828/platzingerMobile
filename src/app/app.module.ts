@@ -12,6 +12,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user.provider';
 import { SearchPipe } from '../pipes/search.pipe';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { firebaseConfig } from '../app/credentials';
+import { AuthenticationProvider } from '../providers/authentication.provider';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -23,6 +29,9 @@ import { SearchPipe } from '../pipes/search.pipe';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +43,9 @@ import { SearchPipe } from '../pipes/search.pipe';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    AuthenticationProvider,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}
