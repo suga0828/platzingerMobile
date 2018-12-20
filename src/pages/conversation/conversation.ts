@@ -17,11 +17,11 @@ import { User } from "../../interfaces/user";
 })
 export class ConversationPage {
 
-  user: User;
+  contact: User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user = this.navParams.get('data');
-    console.log(this.user);
+    this.contact = this.navParams.get('data');
+    console.log(this.contact);
   }
 
   ionViewDidLoad() {

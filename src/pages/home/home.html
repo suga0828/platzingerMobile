@@ -20,10 +20,10 @@
           <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid">
         </div>
       </ion-col>
-      <ion-col col-9>
-        <h1>Nick</h1>
+      <ion-col col-9 *ngIf="user">
+        <h1>{{user.nick || 'Agregue un nick'}}</h1>
         <small>Subnick</small> <br />
-        <small><b>suga@mail.com</b></small>
+        <small><b>{{user.email}}</b></small>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -35,10 +35,10 @@
       <b>Amigos</b>
     </div>
     <ion-list>
-      <ng-container *ngFor="let contact of contacts | search: query">
+      <ng-container *ngFor="let contact of friends | search: query">
         <ion-item (click)="goToConversation(contact)" [ngClass]="{ 'contact-offline': contact.status == 'Offline' || contact.status == 'AppearOffline' }">
         <img src="assets/img/logo_live_{{ contact.status }}.png" alt="Contact status" class="status">
-          <b>{{ contact.name }}</b> - <small *ngIf="contact.status">{{contact.status}}</small>
+          <b>{{ contact.nick }}</b> - <small *ngIf="contact.status">{{contact.status}}</small>
         </ion-item>
       </ng-container>
     </ion-list>

@@ -6,8 +6,11 @@ export enum Status {
   Away = 'Away'
 }
 export interface User {
-  name: string;
-  age: number;
-  active: boolean;
-  status: Status;
+  uid: string,
+  name?: string;
+  age?: number;
+  email: string;
+  nick?: string;
+  active?: boolean;
+  status?: Status;
 }
